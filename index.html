@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Adeeb Sheikh">
+
+	<title>
+		Main Page | iGG
+	</title>
+
+	<link rel="stylesheet" type="text/css" href="./main.css">
+
+	<link rel="shortcut icon" href="./img/icons/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="./img/icons/favicon.ico" type="image/x-icon">
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js">
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax({
+				url: "/cgi-bin/html-banner.py",
+				data: {
+				},
+				type: "GET",
+				dataType: "html",
+				success: function(data){
+					$("div.banner").html(data);
+				}
+			});
+			$.ajax({
+				url: "/cgi-bin/html-feed.py",
+				data: {
+				},
+				type: "GET",
+				dataType: "html",
+				success: function(data){
+					$("#feed").html(data);
+				}
+			});
+			$.ajax({
+				url: "/cgi-bin/html-new-grammar.py",
+				data: {
+				},
+				type: "GET",
+				dataType: "html",
+				success: function(data){
+					document.getElementById("newgrammar").innerHTML = data;
+				},
+				error: function(){
+					console.log("Not logged in.");
+					document.getElementById("newgrammar").innerHTML = "<h3>Hey, you!</h3><a href='/signup' style='text-decoration: none; color: black;'><h2>Sign Up!</h2></a><h4>It's almost as fun as entire bottle of cough syrup!</h4>"
+				}
+			});
+		});
+	</script>
+
+	<script src="/js-bin/client-login-logout.js" type="text/javascript">
+	</script>
+
+	<script src="/js-bin/client-grammar.js" type="text/javascript">
+	</script>
+
+	<script src="/js-bin/client-remove.js" type="text/javascript">
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="banner">
+		</div>
+
+		<div class="mainpage">
+			<table class="thread">
+				<tr>
+					<td>
+						<div id="newgrammar">
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div id="feed">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="footer" xmlns:dc="http://purl.org/dc/elements/1.1/">
+		<img src="img/icons/hr.png" style="vertical-align:middle">
+		<p id="copyright" property="dc:rights">&copy;
+			<span property="dc:dateCopyrighted">2015</span>
+			<span property="dc:publisher">Adeeb Sheikh</span>
+		</p>
+	</div>
+
+</body>
+
+</html>

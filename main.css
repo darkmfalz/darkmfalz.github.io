@@ -1,0 +1,292 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
+	height: 100%;
+	font-family: "Arial", Helvetica, sans-serif;
+	background-color: #DCEDC8;
+}
+
+	.wrapper{
+		min-height:100%;
+		overflow: auto;
+		padding-bottom: 50px;
+	}
+
+		.loading{
+			background: rgba( 255, 255, 255, .5 ) 
+				url('/img/icons/ajax-loader.gif') 
+				50% 50% 
+				no-repeat;
+		}
+
+		.error{
+			background: rgba( 255, 255, 255, .5 ) 
+				url('/img/icons/error.png') 
+				50% 50% 
+				no-repeat;
+			background-size: 25px;
+		}
+
+		/*Courtesy of http://www.bestcssbuttongenerator.com*/
+		button {
+			white-space:nowrap;
+			-moz-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+			-webkit-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+			box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #637aad), color-stop(1, #5972a7));
+			background:-moz-linear-gradient(top, #637aad 5%, #5972a7 100%);
+			background:-webkit-linear-gradient(top, #637aad 5%, #5972a7 100%);
+			background:-o-linear-gradient(top, #637aad 5%, #5972a7 100%);
+			background:-ms-linear-gradient(top, #637aad 5%, #5972a7 100%);
+			background:linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#637aad', endColorstr='#5972a7',GradientType=0);
+			background-color:#637aad;
+			border:1px solid #314179;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:13px;
+			font-weight:bold;
+			padding:6px 12px;
+			text-decoration:none;
+		}
+		button:hover {
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5972a7), color-stop(1, #637aad));
+			background:-moz-linear-gradient(top, #5972a7 5%, #637aad 100%);
+			background:-webkit-linear-gradient(top, #5972a7 5%, #637aad 100%);
+			background:-o-linear-gradient(top, #5972a7 5%, #637aad 100%);
+			background:-ms-linear-gradient(top, #5972a7 5%, #637aad 100%);
+			background:linear-gradient(to bottom, #5972a7 5%, #637aad 100%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5972a7', endColorstr='#637aad',GradientType=0);
+			background-color:#5972a7;
+		}
+		button:active {
+			position:relative;
+			top:1px;
+		}
+
+		.banner{
+			margin: 0 auto;
+			padding: 0;
+			width: 100%;
+			overflow: hidden;
+			background-color:#8BC34A;
+			display: flex;
+			justify-content: space-between;
+		}
+
+			.titlelink{
+				padding-left: 15px;
+				text-decoration: none;
+				color: rgb(255, 255, 255);
+				font-family: "Impact", Charcoal, sans-serif;
+				font-size: 200%;
+			}
+
+			.logindiv{
+				padding-top: 35px;
+				padding-right: 15px;
+				text-decoration: none;
+				color: rgb(255, 255, 255);
+			}
+
+				.logintable{
+					display: table;
+					border-spacing: 10px 2px;
+					border-color: gray;
+					border-collapse: separate;
+				}
+
+					.bannerlink{
+						text-decoration: inherit;
+						color: inherit;
+					}
+
+						.bannerlink:hover{
+							text-decoration: underline;
+						}
+
+					.banner-button{
+						width: 20px;
+						opacity: .4;
+					}
+
+						.banner-button img{
+							width: 20px;
+						}
+
+					.banner-button:hover{
+						width: 20px;
+						opacity: .6;
+					}
+
+					/* Credit for the crop: */
+					/* http://stackoverflow.com/questions/26421274/css-circular-cropping-of-rectangle-image */
+					.circle-cropper {
+						width: 50px;
+						height: 50px;
+						position: relative;
+						overflow: hidden;
+						border-radius: 50%;
+						text-align: center; /* ensures the image is always in the h-middle */
+					}
+
+					.circle-cropper img{
+						display: inline;
+						margin: 0 auto;
+						height: 100%;
+						width: auto;
+						position: relative; /* allows repositioning */
+						left: 100%; /* move the whole width of the image to the right */
+						margin-left: -200%; /* magic! */
+					}
+
+			.logoutdiv{
+				padding-top: 10px;
+				text-decoration: none;
+				color: rgb(255, 255, 255);
+			}
+
+		.mainpage{
+			display: flex;
+			justify-content: space-around;
+			padding-top: 20px;
+		}
+
+			#tree {
+				width: 80%;
+				height: 100%;
+				margin: auto;
+				border: 1px solid lightgray;
+			}
+
+			/* Credit for the crop: */
+			/* http://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
+			.center-cropped {
+				width: 250px;
+				height: 250px;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 250px;
+				background-color: #8BC34A;
+				overflow: hidden;
+			}
+
+				.center-cropped img {
+					min-height: 100%;
+					max-width: 100%;
+					/* IE 8 */
+					-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+					/* IE 5-7 */
+					filter: alpha(opacity=0);
+					/* modern browsers */
+					opacity: 0;
+				}
+
+			.thread{
+				border-collapse: separate;
+				padding-bottom: 15px;
+				max-width: 50%;
+			}
+
+				.thread td{
+					padding: 5px;
+				}
+
+			.thread-user{
+				border-collapse: separate;
+				padding-bottom: 15px;
+			}
+
+				.thread-user td{
+					padding: 5px;
+				}
+
+			.threadnm{
+				border-collapse: separate;
+				padding-bottom: 15px;
+			}
+
+				.threadnm td{
+					padding: 5px;
+				}
+
+				.post-block{
+					background-color:#F1F8E9;
+					border-radius: 10px;
+					border-collapse: separate;
+				}
+
+					.post-block td{
+						padding: 10px;
+					}
+
+					.post-block tr{
+						padding: 10px;
+					}
+
+					.remove-button{
+						width: 10px;
+						opacity: .4;
+					}
+
+						.remove-button img{
+							width: 10px;
+						}
+
+					.remove-button:hover{
+						width: 10px;
+						opacity: 1.0;
+					}
+
+			.profile{
+				border-collapse: separate;
+				border-spacing: 15px;
+				table-layout: fixed;
+			}
+
+				.profile-block{
+					background-color:#F1F8E9;
+					border-radius: 10px;
+					border-collapse: separate;
+				}
+
+				#infopanel{
+					padding: 15px;
+					float: left;
+				}
+
+				.profile td{
+					vertical-align: top;
+				}
+
+			.input-block{
+				background-color:#F1F8E9;
+				border-radius: 5px;
+				border-collapse: separate;
+				padding: 5px;
+			}
+
+				.input-block td{
+					padding: 5px;
+				}
+
+			textarea {
+					resize: none;
+					font-family: inherit;
+					font-size: inherit;
+				}
+
+	.footer{
+		/*Sticky footer CSS courtesy of: http://www.cssstickyfooter.com/;*/
+		background-color: white;
+		text-align: center;
+		margin-top: -50px;
+		height: 50px;
+		clear: both;
+		color: gray;
+	}
